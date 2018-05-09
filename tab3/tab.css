@@ -1,0 +1,24 @@
+.tab{
+    border: 1px solid #ccc;
+}
+.tab-nav{
+    border-bottom: 1px solid #ccc;
+}
+.tab-navlist{
+    text-align: left;
+    padding: 0.5em;
+}
+.tab-navitem{
+	display: inline-block;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    cursor: pointer;
+}
+.tab-navitem__active{
+    background: #333;
+    color: #fff;
+    cursor: default;
+}
+.tab-content{
+    padding:1em;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>tab 组件</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tab.css">
+</head>
+
+<body>
+    <h1>tab-1</h1>
+    <pre style="border:1px dashed #ccc; padding: 0.5em;"><code>         
+$('.tab-1').tab({
+    initIndex: 1
+});
+    </code></pre>
+    <!-- 第一个tab -->
+    <div class="tab tab-1">
+        <div class="tab-nav">
+            <div class="tab-navlist">
+                <span class="tab-navitem">标签1</span>
+                <span class="tab-navitem">标签2</span>
+                <span class="tab-navitem">标签3</span>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-contentitem">1的内容</div>
+            <div class="tab-contentitem">2的内容</div>
+            <div class="tab-contentitem">3的内容</div>
+        </div>
+    </div>
+
+    <h1>tab-2</h1>
+    <pre style="border:1px dashed #ccc; padding: 0.5em;"><code>         
+$('.tab-2').tab({
+    initIndex: 2,
+    type: 'mouseenter', //hover
+});
+    </code></pre>
+    <!-- 第二个tab -->
+    <div class="tab tab-2">
+        <div class="tab-nav">
+            <div class="tab-navlist">
+                <span class="tab-navitem">标签1</span>
+                <span class="tab-navitem">标签2</span>
+                <span class="tab-navitem">标签3</span>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-contentitem">1的内容</div>
+            <div class="tab-contentitem">2的内容</div>
+            <div class="tab-contentitem">3的内容</div>
+        </div>
+    </div>
+
+    <h1>tab-3</h1>
+    <pre style="border:1px dashed #ccc; padding: 0.5em;"><code>             
+$('.tab-3').tab({
+    type: 'click', //hover
+    tagBgcolor: '#009',
+});
+    </code></pre>
+    <!-- 第三个tab -->
+    <div class="tab tab-3">
+        <div class="tab-nav">
+            <div class="tab-navlist">
+                <span class="tab-navitem">标签1</span>
+                <span class="tab-navitem">标签2</span>
+                <span class="tab-navitem">标签3</span>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-contentitem">1的内容</div>
+            <div class="tab-contentitem">2的内容</div>
+            <div class="tab-contentitem">3的内容</div>
+        </div>
+    </div>
+
+
+    <script src="http://www.xinhuanet.com/global/lib/jq/jquery1.12.4/jquery1.12.4.min.js"></script>
+    <script src="tab.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('.tab-1').tab({
+                initIndex: 1
+            });
+
+            $('.tab-2').tab({
+                initIndex: 2,
+                type: 'mouseenter', //hover
+            });
+
+            $('.tab-3').tab({
+                type: 'click', //hover
+                tagBgcolor: '#009',
+            });
+        });
+    </script>
+</body>
+
+</html>
