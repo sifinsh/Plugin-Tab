@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JS</title>
+<script>
+//方法一
+/*window.onload = function () {
+	var oMenu = document.getElementById('menu');
+	var aBtn = oMenu.getElementsByTagName('div');
+	var oContent = document.getElementById('content');
+	var aText = oContent.getElementsByTagName('div');
+	for (var i = 0; i < aBtn.length; i++) {
+	//这里的循环是给aBtn数组的下标变成i，还有给每一个点击绑定事件时做侦听
+		aBtn[i].index = i;
+		aBtn[i].onclick = function () {
+			for (var j = 0; j < aBtn.length; j++) {
+				//alert(i);
+				aBtn[j].className = '';
+				aText[j].style.display = 'none';
+			}
+			//alert(i);
+			this.className = 'active';
+			aText[this.index].style.display = 'block';
+		}
+	}
+}*/
+//方法一具体思路：先获取元素，然后给每个元素增加index属性和点击事件，这里用循环或者事件委托，然后点击事件又做了一些事，比如说又把所有的元素遍历一遍，或者其他的。两个for循环嵌套，尽量不都使用i，容易混淆，也可以两个for不嵌套，如下：
+window.onload = function () {
+	var oMenu = document.getElementById('menu');
+	var aBtn = oMenu.getElementsByTagName('div');
+	var oContent = document.getElementById('content');
+	var aText = oContent.getElementsByTagName('div');
+	for (var i = 0; i < aBtn.length; i++) {
+		aBtn[i].index = i;
+		aBtn[i].onclick = doSth;
+	}
+	function doSth() {
+		for (var j = 0; j < aBtn.length; j++) {
+			aBtn[j].className = '';
+			aText[j].style.display = 'none';
+		}
+		this.className = 'active';
+		aText[this.index].style.display = 'block';
+	}
+}
+//方法二
+/*window.onload = function () {
+	var oMenu = document.getElementById('menu');
+	var aBtn = oMenu.getElementsByTagName('div');
+	var oContent = document.getElementById('content');
+	var aText = oContent.getElementsByTagName('div');
+	var lastIndex = 0;
+	for (var i = 0; i < aBtn.length; i++) {
+		aBtn[i].index = i;
+		aBtn[i].onclick = function () {
+			aBtn[lastIndex].className = '';
+			aText[lastIndex].style.display = 'none';
+			this.className = 'active';
+			aText[this.index].style.display = 'block';
+			lastIndex = this.index;
+		}
+	}
+}*/
+//方法二具体思路：先获取元素，然后给每个元素增加index属性和点击事件，这里用循环或者事件委托，定义当前高亮选项值，点击后先把高亮的取消，为当前点击的高亮，把当前点击的索引值赋给当前高亮选项值。
+</script>
+<style>
+#menu { overflow: hidden; }
+#menu div { width: 50px; height: 30px; text-align: center; float: left; margin: 10px; border: solid 1px #ccc; line-height: 30px; }
+#menu .active { background: #cc0000; color: #fff; }
+#content div { width: 300px; height: 200px; text-align: center; padding: 10px; border: solid 1px #ccc; margin: 10px; display: none; }
+</style>
+</head>
+<body>
+<div id="tab">
+	<div id="menu">
+		<div id="menu1" class="active">标签1</div>
+		<div id="menu2">标签2</div>
+		<div id="menu3">标签3</div>
+		<div id="menu4">标签4</div>
+	</div>
+	<div id="content">
+		<div id="content1" style="display: block;">内容一</div>
+		<div id="content2">内容二</div>
+		<div id="content3">内容三</div>
+		<div id="content4">内容四</div>
+	</div>
+</div>
+</body>
+</html>
